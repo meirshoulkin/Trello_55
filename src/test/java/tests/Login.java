@@ -7,14 +7,15 @@ import org.testng.annotations.Test;
 
 public class Login extends TestBase{
 
-    @Test
+   @Test
     public void positiveLoginTest(){
-        app.getUserHelper().openLoginForm();
-        app.getUserHelper().fillLoginForm(new User().withEmail("maxmayzel@gmail.com").withPassword("Rfrnec7_*"));
-        app.getUserHelper().submitLogIn();
-        app.getUserHelper().pause(10000);
-        Assert.assertTrue(app.getUserHelper().isElementPresent(By.xpath("//span[@class='DweEFaF5owOe02 V_PnoJ2AynVwLp G6CmOLx93OUZez']")));
-    }
+          app.getUserHelper().openLoginForm();
+          app.getUserHelper().fillLoginForm(new User().withEmail("maxmayzel@gmail.com").withPassword("Rfrnec7_*"));
+          app.getUserHelper().pause(5000);
+          app.getUserHelper().submitLogIn();
+          app.getUserHelper().pause(10000);
+          Assert.assertTrue(app.getUserHelper().isElementPresent(By.xpath("//span[@class='DweEFaF5owOe02 V_PnoJ2AynVwLp G6CmOLx93OUZez']")));
+   }
     @Test
     public void negativePasswordLoginTest(){
         app.getUserHelper().openLoginForm();

@@ -16,12 +16,12 @@ public class UserHelper extends HelperBase{
     public void fillLoginForm(User user) {
         type(By.xpath("//input[@id='user']"), user.getEmail());
         click(By.xpath("//input[@id='login']"));
-        pause(3000);
+        pause(7000);
         type(By.xpath("//input[@id='password']"), user.getPassword());
     }
 
     public void submitLogIn() {
-        click(By.xpath("//span[text()='Log in']"));
+        click(By.xpath("//button[@id='login-submit']//span[@class='css-178ag6o']//span"));
     }
 
     public void fillEmailFied(User user) {
