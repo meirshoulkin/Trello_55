@@ -30,7 +30,8 @@ public class UserHelper extends HelperBase{
     }
 
     public void submitLogIn() {
-        click(By.xpath("//span[text()='Log in']"));
+        //click(By.xpath("//span[text()='Log in']"));
+        click(By.id("login-submit"));
     }
 
     public void fillEmailFied(User user) {
