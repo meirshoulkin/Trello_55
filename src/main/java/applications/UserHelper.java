@@ -33,7 +33,6 @@ public class UserHelper extends HelperBase{
         //click(By.xpath("//span[text()='Log in']"));
         click(By.id("login-submit"));
     }
-
     public void fillEmailFied(User user) {
         type(By.xpath("//input[@id='user']"), user.getEmail());
         click(By.xpath("//input[@id='login']"));

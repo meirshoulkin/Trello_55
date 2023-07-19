@@ -13,6 +13,7 @@ public class Login extends TestBase{
     public void preCondition(){
         if(app.getUserHelper().isLogged()){
             app.getUserHelper().LogOut();
+            app.getUserHelper().pause(3000);
         }
     }
     @Test(priority = 1)
@@ -41,7 +42,7 @@ public class Login extends TestBase{
         // .isElementPresent(By.xpath("//span[contains(text(),'Incorrect email address and / or password. If you ')]")));
 
     }
-    // @Test(priority = 2)
+    @Test(enabled = false)
     public void logOutTest(){
         if(app.getUserHelper().isElementPresent(By.xpath("//span[@class='DweEFaF5owOe02 V_PnoJ2AynVwLp G6CmOLx93OUZez']"))) {
             app.getUserHelper().openAccountForm();

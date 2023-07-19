@@ -12,7 +12,7 @@ public class BoardDeletion extends TestBase{
             app.getUserHelper().login();
         }
     }
-    @Test
+    @Test(enabled = false)
     public void deletionBoardTest(){
         while (app.getBoardHelper().boardCounter() > 1) {
             app.getBoardHelper().selectFirstBoard();
@@ -24,6 +24,22 @@ public class BoardDeletion extends TestBase{
             app.getBoardHelper().closeBoard();
             app.getBoardHelper().pause(2000);
 
+        }
+    }
+    @Test
+    public void boardDeletionTest() {
+        if (app.getBoardHelper().NumberBoards() >= 2) {
+            while (app.getBoardHelper().NumberBoards() > 2) {
+                int before = app.getBoardHelper().NumberBoards();
+                app.getBoardHelper().pressFirstBoardSpot();
+                app.getBoardHelper().pause(2000);
+                app.getBoardHelper().boardDeletionPath();
+                app.getBoardHelper().pause(2000);
+                int after = app.getBoardHelper().NumberBoards();
+                app.getBoardHelper().pause(5000);
+                Assert.assertEquals(before, after + 1);
+            }
+            System.out.println("there are not already any boards for deletion");
         }
     }
 //package tests;

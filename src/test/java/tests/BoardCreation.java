@@ -3,6 +3,7 @@ package tests;
 import applications.MyDataProvider;
 import models.Board;
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -13,9 +14,10 @@ public class BoardCreation extends TestBase{
             app.getUserHelper().login();
         }
     }
+
     @Test
     public void boardCreationTest() {
-        while (app.getBoardHelper().NumberBoards() < 5) {
+        while (app.getBoardHelper().NumberBoards() < 3) {
             String boardName = "qa19_" + (System.currentTimeMillis() / 1700) % 3600;
             app.getUserHelper().pause(1000);
             //  int before = app.getBoardHelper().NumberBoards();
@@ -28,8 +30,9 @@ public class BoardCreation extends TestBase{
             app.getUserHelper().pause(2000);
             int after = app.getBoardHelper().NumberBoards();
             app.getUserHelper().pause(3000);
+            Assert.assertTrue(app.getUserHelper().isLogged());
             //String title = app.getBoardHelper().getTitle();
-//            app.getUserHelper().pause(5000);
+           app.getUserHelper().pause(3000);
 //          //  Assert.assertEquals(boardName, title);
 //            Assert.assertEquals(before, after - 1);
         }
@@ -46,5 +49,8 @@ public class BoardCreation extends TestBase{
         app.getUserHelper().pause(2000);
         int after = app.getBoardHelper().NumberBoards();
         app.getUserHelper().pause(3000);
+        Assert.assertTrue(app.getUserHelper().isLogged());
+        app.getUserHelper().pause(3000);
 
-    }}
+    }
+}
