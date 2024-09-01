@@ -37,7 +37,7 @@ task log(type:Test){
             includeGroups groups
         }
 
-        def suite=System.getProperty('suit','')
+        def suite=System.getProperty('suite','')
         if(suite.equals('login')){
             suites'src/test/resources/login.xml'
 
